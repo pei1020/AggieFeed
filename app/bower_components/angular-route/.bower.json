@@ -6,7 +6,6 @@
   "ignore": [],
   "dependencies": {
     "angular": "1.6.4",
-    "angular-route": "1.6.4"
   },
   "homepage": "https://github.com/angular/bower-angular-route",
   "_release": "1.6.4",

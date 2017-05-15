@@ -1,70 +1,28 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
+'use strict';
 
-var products = [
+/**
+ * @ngdoc function
+ * @name desktopApp.controller:MainCtrl
+ * @description
+ * # MainCtrl
+ * Controller of the desktopApp
+ */
+angular.module('MyApp',[])
+  .controller('ServiceCtrl', function ($scope, $location, $http)
 {
-    id: 1,
-    name: 'laptop'
-},
-{
-    id: 2,
-    name: 'microwave'
-}
-];
+  return{
+    getWeather: function(){
+      var $city = $('#cityname');
 
-var currentId = 2;
+        $.ajax({
+          type: 'GET',
+          url: "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=a57c72744b6d58125f048dbf8ef60523",
+          success:function(city) {
+            console.log(city.main.temp);
+            return city.main.temp;
+            }
+    }
 
-var PORT = process.env.PORT || 3000;
-
-app.use(express.static(__dirname));
-app.use(bodyParser.json());
-
-app.get('/products', function(req, res) {
-    res.send({ products: products });
-});
-
-app.post('/products', function(req, res) {
-    var productName = req.body.name;
-    currentId++;
-
-    products.push({
-        id: currentId,
-        name: productName
-    });
-
-    res.send('Successfully created product!');
-});
-
-app.put('/products/:id', function(req, res) {
-    var id = req.params.id;
-    var newName = req.body.newName;
-
-    var found = false;
-
-    products.forEach(function(product, index) {
-        if (!found && product.id === Number(id)) {
-            product.name = newName;
-        }
-    });
-
-    res.send('Succesfully updated product!');
-});
-
-app.delete('/products/:id', function(req, res) {
-    var id = req.params.id;
-
-    var found = false;
-
-    products.forEach(function(product, index) {
-        if (!found && product.id === Number(id)) {
-            products.splice(index, 1);
-        }
-    });
-
-    res.send('Successfully deleted product!');
-});
-
-app.listen(PORT, function() {
-    console.log('Server listening on ' + PORT);
+      });
+};
 });

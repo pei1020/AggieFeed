@@ -6,7 +6,6 @@
   "ignore": [],
   "dependencies": {
   	"angular-aria": "1.6.4",
-  	"angular-route": "1.6.4"
-
+    "angular-route": "1.6.4"
   }
 }
