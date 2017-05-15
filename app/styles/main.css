@@ -88,8 +88,8 @@ body {
   .header,
   .marketing,
   .footer {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 610px;
+    padding-right: 350px;
   }
   /* Space out the masthead */
   .header {

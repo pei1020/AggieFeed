@@ -26,9 +26,9 @@
     <div class="header">
     <div ng-controller='MainCtrl'>
       <input id= "cityname" placeholder="Enter City">
-      <button id ="serach_button" onclick="click()">Search</button>
-      <p id="display"></p>
-     </div>
+      <button id ="serach_button" ng-click='go("#cityname")'>Search</button>
+      <p>{{city}} {{temperature}} {{current_weather}} {{description}}</p>
+    </div>
 
 
 
@@ -40,18 +40,7 @@
 
     </div>
 
-      <!-- </div> -->
-    <!-- </div> -->
 
-    <!-- <div class="container"> -->
-    <!-- <div ng-view=""></div> -->
-    <!-- </div> -->
-
-    <!-- <div class="footer"> -->
-      <!-- <div class="container"> -->
-        <!-- <p><span class="glyphicon glyphicon-heart"></span></p> -->
-      <!-- </div> -->
-    <!-- </div> -->
  <script>
  function print(){
    var x = document.getElementById("cityname").value;
@@ -74,7 +63,7 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
