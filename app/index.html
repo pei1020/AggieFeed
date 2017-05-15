@@ -5,38 +5,40 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    
+
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+ <script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/about.js"></script>
+<script src="bower_components/angular/angular.js"></script>
 
+<script src="bower_components/angular-route/angular-route.js"></script>
     <link rel="stylesheet" href="styles/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   </head>
 
   <body ng-app="MyApp">
+      <h1>Weather Map</h1>
     <div class="header">
-    
-    <h1>Weather Map</h1>
+    <div ng-controller="MainCtrl">
+      <button id ="serach_button" ng-click="updateModel('JSONP',
+                  'https://angularjs.org/greet.php?name=Super%20Hero')">
+         Search
+       </button>
+     </div>
 
-    <form id="create-form" >
-        <input type="text" id="text-input" placeholder="Enter City Name">
-        <button id = "search-botton">Search</button>
-    </form>
-    <hr>
-    <table>
-        <thead>
-            <tr>
-                <th>City</th>
-                <th>Temperature </th>
-                <th>Wind </th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
 
-          
-        </div>
+
+    <!-- <form id="create-form" > -->
+        <!-- <input type="text" id="text-input" placeholder="Enter City Name"> -->
+        <!-- <button id = "search-botton">Search</button> -->
+    <!-- </form> -->
+
+
+    </div>
 
       <!-- </div> -->
     <!-- </div> -->
@@ -63,22 +65,18 @@
        ga('send', 'pageview');
     </script>
 
-    
+
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
+
     <!-- endbower -->
     <!-- endbuild -->
-
+    <script src="jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
+
 
         <!-- endbuild -->
 </body>

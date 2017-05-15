@@ -7,91 +7,30 @@
  * # MainCtrl
  * Controller of the desktopApp
  */
-angular.module('desktopApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
-$(function() {
-    // GET/READ
-    $('#get-button').on('click', function() {
-        $.ajax({
-            url: '/products',
-            contentType: 'application/json',
-            success: function(response) {
-                var tbodyEl = $('tbody');
-
-                tbodyEl.html('');
-
-                response.products.forEach(function(product) {
-                    tbodyEl.append('\
-                        <tr>\
-                            <td class="id">' + product.id + '</td>\
-                            <td><input type="text" class="name" value="' + product.name + '"></td>\
-                            <td>\
-                                <button class="update-button">UPDATE/PUT</button>\
-                                <button class="delete-button">DELETE</button>\
-                            </td>\
-                        </tr>\
-                    ');
-                });
-            }
-        });
+angular.module('MyApp',[])
+  .controller('MainCtrl', function ($scope, $location, $http)
+{
+    $http.get('http://api.openweathermap.org/data/2.5/forecast?q=Taipei&appid=a57c72744b6d58125f048dbf8ef60523').success(function(data)
+    {
+      console.log('TEST');
+    })
+    $scope.weather =
+    {
+      city: '',
+      temperature: '',
+      weather: '',
+      description: ''
+    };
+    /*var search_button = document.getElementById("search_button");
+    search_button.addEventListener("click", function()
+    {
+      var ourRequest = new XMLHttpRequest();
+      ourRequest.open('GET', 'http://api.openweathermap.org/data/2.5/forecast?q=Taipei&appid=a57c72744b6d58125f048dbf8ef60523');
+      ourRequest.onload = function()
+      {
+        var ourData = JSON.parse(ourRequest.responseText);
+        console.og(ourData[0]);
+      };
     });
-
-    // CREATE/POST
-    $('#create-form').on('submit', function(event) {
-        event.preventDefault();
-
-        var createInput = $('#create-input');
-
-        $.ajax({
-            url: '/products',
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({ name: createInput.val() }),
-            success: function(response) {
-                console.log(response);
-                createInput.val('');
-                $('#get-button').click();
-            }
-        });
-    });
-
-    // UPDATE/PUT
-    $('table').on('click', '.update-button', function() {
-        var rowEl = $(this).closest('tr');
-        var id = rowEl.find('.id').text();
-        var newName = rowEl.find('.name').val();
-
-        $.ajax({
-            url: '/products/' + id,
-            method: 'PUT',
-            contentType: 'application/json',
-            data: JSON.stringify({ newName: newName }),
-            success: function(response) {
-                console.log(response);
-                $('#get-button').click();
-            }
-        });
-    });
-
-    // DELETE
-    $('table').on('click', '.delete-button', function() {
-        var rowEl = $(this).closest('tr');
-        var id = rowEl.find('.id').text();
-
-        $.ajax({
-            url: '/products/' + id,
-            method: 'DELETE',
-            contentType: 'application/json',
-            success: function(response) {
-                console.log(response);
-                $('#get-button').click();
-            }
-        });
-    });
+ourRequest.send();*/
 });
