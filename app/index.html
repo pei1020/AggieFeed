@@ -7,27 +7,27 @@
     <meta name="viewport" content="width=device-width">
 
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
  <script src="scripts/app.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/about.js"></script>
-<script src="bower_components/angular/angular.js"></script>
+<script src="scripts/service.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
+<script src="jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="styles/main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   </head>
 
-  <body ng-app="MyApp">
+  <body ng-app='MyApp'>
       <h1>Weather Map</h1>
     <div class="header">
-    <div ng-controller="MainCtrl">
+    <div ng-controller='MainCtrl'>
       <input id= "cityname" placeholder="Enter City">
-      <button id ="serach_button" ng-click='go()'>Search</button>
-      <div id="display">
-        {{weather}};
-      </div>
+      <button id ="serach_button" onclick="click()">Search</button>
+      <p id="display"></p>
      </div>
 
 
@@ -52,7 +52,12 @@
         <!-- <p><span class="glyphicon glyphicon-heart"></span></p> -->
       <!-- </div> -->
     <!-- </div> -->
-
+ <script>
+ function print(){
+   var x = document.getElementById("cityname").value;
+   document.getElementById("display").innerHTML = x;
+ }
+ </script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -69,10 +74,9 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="jquery.js"></script>
+
     <!-- endbower -->
     <!-- endbuild -->
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
 

@@ -58,8 +58,8 @@ var noop;
  */
 /* global -ngRouteModule */
 
-  var ngRouteModule = angular.module('ngRoute', [])
-  //.info({ angularVersion: '1.6.4' }).provider('$route', $RouteProvider).run(instantiateRoute);
+  var ngRouteModule = angular.module('MyApp')
+  .info({ angularVersion: '1.6.4' }).provider('$route', $RouteProvider).run(instantiateRoute);
   // Ensure `$route` will be instantiated in time to capture the initial `$locationChangeSuccess`
   // event (unless explicitly disabled). This is necessary in case `ngView` is included in an
   // asynchronously loaded template.

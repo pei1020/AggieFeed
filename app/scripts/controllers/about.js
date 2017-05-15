@@ -7,7 +7,7 @@
  * # AboutCtrl
  * Controller of the desktopApp
  */
-angular.module('desktopApp')
+angular.module('MyApp')
   .controller('AboutCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

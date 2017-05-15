@@ -7,11 +7,9 @@
  * # MainCtrl
  * Controller of the desktopApp
  */
-angular.module('MyApp',['ServiceCtrl'])
-  .controller('MainCtrl', function ($scope, $location, $http)
+angular.module('MyApp')
+  .controller('MainCtrl', function ($scope, $http, ServiceCtrl)
 {
-  $scope.go = function(cityname){
-    ServiceCtrl.getWeather(cityname);
-  }
 
+    ServiceCtrl.getWeather('#cityname'.value);
 });

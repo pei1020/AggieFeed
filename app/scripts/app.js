@@ -9,28 +9,20 @@
  * Main module of the application.
  */
 angular
-  .module('desktopApp', [
-    'ngAnimate',
-    'ngAria',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
+  .module('MyApp', ['ngRoute'])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
+      .when('/index', {
+        templateUrl: 'index.html',
         controller: 'MainCtrl',
-        controllerAs: 'main'
+        controllerAs: 'controller'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+
       .otherwise({
         redirectTo: '/'
       });

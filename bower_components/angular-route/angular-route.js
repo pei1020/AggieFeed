@@ -58,7 +58,7 @@ var noop;
  */
 /* global -ngRouteModule */
 var ngRouteModule = angular.
-  module('ngRoute', []).
+  module("MyApp", ['ngRoute']).
   info({ 'angularVersion': '1.6.4'}).
   provider('$route', $RouteProvider).
   // Ensure `$route` will be instantiated in time to capture the initial `$locationChangeSuccess`
