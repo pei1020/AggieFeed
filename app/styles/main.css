@@ -13,7 +13,7 @@ body {
 .header,
 .marketing,
 .footer {
-  padding-left: 15px;
+  padding-left: 300px;
   padding-right: 15px;
 }
 
@@ -36,10 +36,6 @@ body {
   padding-top: 19px;
   color: #777;
   border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-  margin: 30px 0;
 }
 
 /* Main marketing message and sign up button */
@@ -66,16 +62,12 @@ body {
   margin-right: 100px;
 }
 
-#text-input{
-  display: center;
-  position: center;
-  margin-left: 610px;
+.header #cityname{
+  margin-left: 615px;
 }
 
-#search-button{
-  display: center;
-  position: center;
-  margin-left: 610px;
+.header #search-button{
+  margin-left: 100px;
 }
 
 /* Responsive: Portrait tablets and up */
@@ -88,8 +80,8 @@ body {
   .header,
   .marketing,
   .footer {
-    padding-left: 610px;
-    padding-right: 350px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
   /* Space out the masthead */
   .header {
@@ -99,4 +91,36 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+.container{
+  border: 1px solid grey;
+  position:relative;
+  padding-left: 0px;
+  padding-right: 0px;
+
+  &:nth-child(even){
+    md-card{
+      background: rgba(255, 0, 0, 0.39);
+      position:absolute;
+      top:0;left:0;right:0;bottom:0;
+    }
+  }
+  &:nth-child(odd){
+    md-card{
+      background: rgba(0, 0, 255, 0.32);
+      position:absolute;
+      top:0;left:0;right:0;bottom:0;
+    }
+  }
+}
+
+.header #table_container{
+  position: relative:absolute;
+  width: 95%;
+  height: auto;
+  padding-left: 160px;
+  padding-right: 150px;
+  margin-left: 20px;
+  margin-right: 20px;
 }

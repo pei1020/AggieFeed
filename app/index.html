@@ -27,6 +27,32 @@
     <div ng-controller='MainCtrl'>
       <input id= "cityname" placeholder="Enter City">
       <button id ="serach_button" ng-click='go("#cityname")'>Search</button>
+      <div id="table_container">
+      <table class="table">
+    <thead>
+      <tr>
+        <th>City</th>
+        <th>Weather</th>
+        <th>Description</th>
+        <th>Temperature</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{city}}</td>
+          <td>{{current_weather}}</td>
+            <td>{{description}}</td>
+              <td>{{temperature}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+      <div layout layout-wrap layout-sm="column" layout-xs="column" style="min-height:100vh">
+    <div flex="50" flex-sm="100" flex-xs="100" ng-repeat="1" class="container">
+      <md-card flex>{{city}} {{temperature}} {{current_weather}} {{description}}</md-card>
+    </div>
+  </div>
       <p>{{city}} {{temperature}} {{current_weather}} {{description}}</p>
     </div>
 
