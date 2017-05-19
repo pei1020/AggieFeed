@@ -116,9 +116,10 @@ body {
 }
 
 .header #table_container{
-  position: relative:absolute;
+  position: relative;
   width: 95%;
   height: auto;
+  padding-top: 20px;
   padding-left: 160px;
   padding-right: 150px;
   margin-left: 20px;

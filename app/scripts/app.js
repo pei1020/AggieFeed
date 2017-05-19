@@ -8,12 +8,12 @@
  *
  * Main module of the application.
  */
-angular
-  .module('MyApp', ['ngRoute'])
+angular.module('MyApp', ['ngRoute'])
   .config(function ($routeProvider) {
+
     $routeProvider
-      .when('/index', {
-        templateUrl: 'index.html',
+      .when('/main', {
+        templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'controller'
       })
@@ -25,5 +25,6 @@ angular
 
       .otherwise({
         redirectTo: '/'
-      });
-  });
+      })
+
+  })

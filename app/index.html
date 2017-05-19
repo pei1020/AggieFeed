@@ -1,36 +1,37 @@
 <!doctype html>
 <html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+        <!-- <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" /> -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/service.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <link rel="stylesheet" href="styles/main.css">
   <head>
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
- <script src="scripts/app.js"></script>
-<script src="scripts/controllers/main.js"></script>
-<script src="scripts/controllers/about.js"></script>
-<script src="scripts/service.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="jquery.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <link rel="stylesheet" href="styles/main.css">
   </head>
 
   <body ng-app='MyApp'>
       <h1>Weather Map</h1>
     <div class="header">
-    <div ng-controller='MainCtrl'>
+    <div ng-controller = "MainCtrl">
       <input id= "cityname" placeholder="Enter City">
       <button id ="serach_button" ng-click='go("#cityname")'>Search</button>
       <div id="table_container">
       <table class="table">
     <thead>
-      <tr>
+      <tr  class="info">
         <th>City</th>
         <th>Weather</th>
         <th>Description</th>
@@ -48,12 +49,12 @@
     </tbody>
   </table>
 </div>
-      <div layout layout-wrap layout-sm="column" layout-xs="column" style="min-height:100vh">
-    <div flex="50" flex-sm="100" flex-xs="100" ng-repeat="1" class="container">
-      <md-card flex>{{city}} {{temperature}} {{current_weather}} {{description}}</md-card>
-    </div>
+      <!-- <div layout layout-wrap layout-sm="column" layout-xs="column" style="min-height:100vh"> -->
+    <!-- <div flex="50" flex-sm="100" flex-xs="100" ng-repeat="1" class="container"> -->
+    <!-- <div flex="50" flex-sm="100" flex-xs="100" class="container"> -->
+  <!-- <md-card flex>{{city}} {{temperature}} {{current_weather}} {{description}}</md-card> -->
+    <!-- </div> -->
   </div>
-      <p>{{city}} {{temperature}} {{current_weather}} {{description}}</p>
     </div>
 
 
@@ -89,7 +90,7 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <!-- <script src="bower_components/jquery/dist/jquery.js"></script> -->
     <!-- endbower -->
     <!-- endbuild -->
 
