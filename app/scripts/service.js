@@ -17,9 +17,9 @@ angular.module('MyApp')
         $.ajax({
           type: 'GET',
           url: "http://api.openweathermap.org/data/2.5/weather?q="+cityname+"&appid=a57c72744b6d58125f048dbf8ef60523",
-          success:function(data, display) {
-            for(var i = data.count -1; i >=0 ; i--){
-              json[data.count - 1 - i] = {
+          success:function(data) {
+            // console.log(data.weather[0].main);
+             json = {
                 "activity" : {
                 "icon":  "icon-bullhorn",
                 "actor": {
@@ -35,14 +35,17 @@ angular.module('MyApp')
                   }//end of image
                 },//end of actor
                 "verb": "post",
-                "title": "Aggie Feed Activity",
+                "title": "Current Weather of "+ data.name,
                 "generator":{
                   "id": "http://openweathermap.org/api"
                 },
                 "object": {
-                  "ucdSrcId" : data.main.temp * 9/5 - 459.76,
+                  "ucdSrcId" : "1234",
                   "objectType": "notification",
-                  "content": data.main.weather[0].main,
+                  "content": {
+                    "temperature":data.main.temp,
+                    "weather": data.weather[0].main,
+                    "description": data.weather[0].description},
                   "ucdEdusModel" : {
                     "url" : "http://openweathermap.org",
                     "urlDisplayName" : "openweathermap",
@@ -81,8 +84,8 @@ angular.module('MyApp')
               }
 
             }
-            }
-              callback(data);
+              // console.log(json);
+               callback(json);
           }
     });
 }

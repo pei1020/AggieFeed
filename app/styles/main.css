@@ -93,26 +93,18 @@ body {
   }
 }
 
-.container{
-  border: 1px solid grey;
-  position:relative;
-  padding-left: 0px;
-  padding-right: 0px;
+.carddemoBasicUsage md-card {
+  min-height: 250px;
+ width: 80%;
+}
 
-  &:nth-child(even){
-    md-card{
-      background: rgba(255, 0, 0, 0.39);
-      position:absolute;
-      top:0;left:0;right:0;bottom:0;
-    }
-  }
-  &:nth-child(odd){
-    md-card{
-      background: rgba(0, 0, 255, 0.32);
-      position:absolute;
-      top:0;left:0;right:0;bottom:0;
-    }
-  }
+md-card>:not(md-card-content) img, md-card>img {
+  box-sizing : border-box;
+}
+
+.header img{
+  height: 10%;
+  width: 10%;
 }
 
 .header #table_container{

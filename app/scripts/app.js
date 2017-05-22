@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * @ngdoc overview
  * @name desktopApp
@@ -8,11 +7,11 @@
  *
  * Main module of the application.
  */
-angular.module('MyApp', ['ngRoute'])
+angular.module('MyApp', [
+  'ngRoute'
+])
   .config(function ($routeProvider) {
-
-    $routeProvider
-      .when('/main', {
+    /*.when('/main', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'controller'
@@ -21,10 +20,28 @@ angular.module('MyApp', ['ngRoute'])
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
-      })
+      })*/
 
-      .otherwise({
-        redirectTo: '/'
-      })
+      var routeConfig = {
+			controller: 'MainCtrl',
+			templateUrl: 'index.html',
+			resolve: {
+				go: function (ServiceCtrl) {
+					// Get the correct module (API or localStorage).
+					return ServiceCtrl.then(function (module) {
+						module.getWeather(); // Fetch the todo records in the background.
+						return module;
+					});
+				}
+			}
+		};
+
+    $routeProvider
+    			.when('/', routeConfig)
+    			.when('/:status', routeConfig)
+    			.otherwise({
+    				redirectTo: '/'
+    			});
+
 
   })

@@ -1,16 +1,22 @@
 <!doctype html>
-<html>
+<html ng-app='MyApp'>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-animate.min.js"></script> -->
+		<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-aria.min.js"></script> -->
     <script src="bower_components/angular/angular.js"></script>
         <!-- <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" /> -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
      <script src="scripts/app.js"></script>
+
     <script src="scripts/controllers/about.js"></script>
+       <script src="scripts/controllers/main.js"></script>
     <script src="scripts/service.js"></script>
-    <script src="scripts/controllers/main.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+     <!-- <script src="bower_components/angular-animate/angular-animate.js"></script> -->
+  <!-- <script src="bower_components/angular-material/angular-material.js"></script> -->
+ <!-- <script src="bower_components/angular-aria/angular-aria.js"></script> -->
     <script src="jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
         <link rel="stylesheet" href="styles/main.css">
@@ -22,38 +28,34 @@
 
   </head>
 
-  <body ng-app='MyApp'>
+  <body>
       <h1>Weather Map</h1>
     <div class="header">
     <div ng-controller = "MainCtrl">
       <input id= "cityname" placeholder="Enter City">
       <button id ="serach_button" ng-click='go("#cityname")'>Search</button>
-      <div id="table_container">
-      <table class="table">
-    <thead>
-      <tr  class="info">
-        <th>City</th>
-        <th>Weather</th>
-        <th>Description</th>
-        <th>Temperature</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{city}}</td>
-          <td>{{current_weather}}</td>
-            <td>{{description}}</td>
-              <td>{{temperature}}</td>
 
-      </tr>
-    </tbody>
-  </table>
+<div class="carddemoBasicUsage" ng-cloak>
+
+<md-content layout="column" layout-gt-xs="row" style="background-color:#cecece">
+
+  <!-- <md-card flex flex-gt-md="30"> -->
+  <md-card>
+    <!-- <img ng-src="{{img}}" class="md-card-image" alt="Washed Out"> -->
+      <img ng-src="{{img}}" class="md-card-image">
+    <md-card-content>
+      <h2 class="md-title">{{title}}</h2>
+      <div>
+        {{source}}
+        {{temperature}}
+        {{current_weather}}
+        {{description}}
+      </div>
+    </md-card-content>
+
+</md-content>
 </div>
-      <!-- <div layout layout-wrap layout-sm="column" layout-xs="column" style="min-height:100vh"> -->
-    <!-- <div flex="50" flex-sm="100" flex-xs="100" ng-repeat="1" class="container"> -->
-    <!-- <div flex="50" flex-sm="100" flex-xs="100" class="container"> -->
-  <!-- <md-card flex>{{city}} {{temperature}} {{current_weather}} {{description}}</md-card> -->
-    <!-- </div> -->
+
   </div>
     </div>
 
@@ -64,8 +66,6 @@
         <!-- <button id = "search-botton">Search</button> -->
     <!-- </form> -->
 
-
-    </div>
 
 
  <script>
@@ -90,7 +90,7 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-    <!-- <script src="bower_components/jquery/dist/jquery.js"></script> -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

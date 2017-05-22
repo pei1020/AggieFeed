@@ -58,7 +58,7 @@
  * {@link ngAria.$ariaProvider#config config} method. For more details, see the
  * {@link guide/accessibility Developer Guide}.
  */
-var ngAriaModule = angular.module('ngAria', ['ng']).
+var ngAriaModule = angular.module('MyApp', ['ng']).
                         info({ angularVersion: '1.6.4' }).
                         provider('$aria', $AriaProvider);
 

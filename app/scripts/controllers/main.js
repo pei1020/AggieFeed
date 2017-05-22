@@ -8,16 +8,20 @@
  * Controller of the desktopApp
  */
 angular.module('MyApp')
-  .controller("MainCtrl", function ($scope, $http, ServiceCtrl)
+       .controller('MainCtrl', function ($scope, $http, ServiceCtrl)
 {
      $scope.go = function() {
     //  $scope.msg = document.getElementById('cityname').value;
-      ServiceCtrl.current_weather(function(data){
-            $scope.city = data.name;
-            $scope.temperature = data.main.temp * 9/5 - 459.76;
-            $scope.current_weather = data.weather[0].main;
-            $scope.description = data.weather[0].description;
-            // console.log(data.weather[0].main);
+      ServiceCtrl.current_weather(function(data,json){
+
+            //  console.log(data.activity.title);
+            $scope.title = data.activity.title;
+            $scope.source = data.activity.actor.author.displayName;
+            //  $scope.city = data.name;
+             $scope.temperature = data.activity.object.content.temperature;
+             $scope.current_weather = data.activity.object.content.weather;
+             $scope.description = data.activity.object.content.description;
+             $scope.img = "images/logo.jpg";
         });
       };
    });
