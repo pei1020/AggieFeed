@@ -19,6 +19,7 @@ module.exports = function (grunt) {
     cdnify: 'grunt-google-cdn'
   });
 
+ grunt.loadNpmTasks('grunt-contrib-jshint');
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
@@ -61,6 +62,7 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
+          '<%= yeoman.app %>/scripts/{,*/}*.js',
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
@@ -84,6 +86,10 @@ module.exports = function (grunt) {
               connect().use(
                 '/bower_components',
                 connect.static('./bower_components')
+              ),
+              connect().use(
+                '/app/scripts',
+                connect.static('./app/scripts')
               ),
               connect().use(
                 '/app/styles',
@@ -125,6 +131,9 @@ module.exports = function (grunt) {
         reporter: require('jshint-stylish')
       },
       all: {
+        globals: {
+          $: false
+        },
         src: [
           'Gruntfile.js',
           '<%= yeoman.app %>/scripts/{,*/}*.js'
@@ -220,7 +229,7 @@ module.exports = function (grunt) {
             }
           }
       }
-    }, 
+    },
 
     // Renames files for browser caching purposes
     filerev: {
@@ -355,7 +364,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '.tmp/concat/scripts',
-          src: '*.js',
+          src: '{,*/}*.js',
           dest: '.tmp/concat/scripts'
         }]
       }
@@ -435,6 +444,8 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
+      'jshint:all',
+      'jscs:all',
       'concurrent:server',
       'postcss:server',
       'connect:livereload',
@@ -471,6 +482,8 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
+    'jshint:all',
+    'jscs:all',
     'htmlmin'
   ]);
 

@@ -10,7 +10,6 @@
 angular.module('MyApp')
   .service('ServiceCtrl', function ()
 {
-   this.current_weather = getWeather;
     function getWeather(callback){
     var cityname = document.getElementById('cityname').value;
     var json = [];
@@ -83,10 +82,11 @@ angular.module('MyApp')
                 }
               }
 
-            }
+            };
               // console.log(json);
                callback(json);
           }
     });
 }
+ this.current_weather = getWeather;
 });
