@@ -7,17 +7,17 @@
  * # MainCtrl
  * Controller of the desktopApp
  */
-angular.module('MyApp')
+angular.module('myServices', [])
   .service('ServiceCtrl', function ()
 {
     function getWeather(callback){
     var cityname = document.getElementById('cityname').value;
     var json = [];
+
         $.ajax({
           type: 'GET',
           url: "http://api.openweathermap.org/data/2.5/weather?q="+cityname+"&appid=a57c72744b6d58125f048dbf8ef60523",
           success:function(data) {
-            // console.log(data.weather[0].main);
              json = {
                 "activity" : {
                 "icon":  "icon-bullhorn",

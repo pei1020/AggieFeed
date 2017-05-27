@@ -6,57 +6,66 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-<script language="JavaScript" type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
-<script language="JavaScript" type="text/javascript" src="/js/jquery-ui-personalized-1.5.2.packed.js"></script>
-<script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script>
-  <script src="jquery.js"></script>
-  <script rel="javascript" type="text/javascript" href="js/jquery-1.11.3.min.js"></script>
-      <script src="bower_components/angular/angular.js"></script>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/about.js"></script>
-       <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/service.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-     <!-- <script src="bower_components/angular-animate/angular-animate.js"></script> -->
-  <!-- <script src="bower_components/angular-material/angular-material.js"></script> -->
- <!-- <script src="bower_components/angular-aria/angular-aria.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-resource.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
+<script src="jquery.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script rel="javascript" type="text/javascript" href="js/jquery-1.11.3.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/about.js"></script>
+<script src="scripts/service.js"></script>
+<script src="scripts/app.js"></script>
+<!-- <script src="scripts/directive.js"></script> -->
+<link rel="stylesheet" href="styles/main.css">
 
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-        <link rel="stylesheet" href="styles/main.css">
-  <head>
+<head>
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
-  </head>
+</head>
 
-  <body ng-app='MyApp'>
-      <h1>Weather Map</h1>
+<body ng-app="MyApp">
+    <h1>Weather Map</h1>
     <div class="header">
     <div ng-controller = "MainCtrl">
       <input id= "cityname" placeholder="Enter City">
-      <button id ="serach_button" ng-click='go("#cityname")'>Search</button>
+      <button id ="serach_button" ng-model = "weather_search" ng-click='addActivity("#cityname")'>Search</button>
 
-<div class="carddemoBasicUsage" ng-cloak>
+<div class="carddemoBasicUsage">
+
+<md-content layout="column" layout-gt-xs="row" style="background-color:#cecece">
+
+  <!-- <md-card flex flex-gt-md="30"> -->
+  <md-card ng-repeat="x in display | unique: 'title'">
+    <!-- <img ng-src="{{img}}" class="md-card-image" alt="Washed Out"> -->
+      <img ng-src="{{x.image}}" class="md-card-image">
+
+    <!-- <md-card-content ng-repeat="x in display"> -->
+    <h2 class="md-title">{{x.title}}</h2>
+
+    <md-card-content>
+      {{x.source}} <br>
+      {{x.temperature}}°F <br>
+      {{x.current_weather}} <br>
+      {{x.description}} <br>
+    </md-card-content>
+</md-card>
+</md-content>
+</div>
+
+<div class = "directive">
 
 <md-content layout="column" layout-gt-xs="row" style="background-color:#cecece">
 
   <!-- <md-card flex flex-gt-md="30"> -->
   <md-card>
-    <!-- <img ng-src="{{img}}" class="md-card-image" alt="Washed Out"> -->
-      <img ng-src="{{img}}" class="md-card-image">
-    <md-card-content>
-      <h2 class="md-title">{{title}}</h2>
-      <div>
-        {{source}}
-        <br>
-        {{temperature}}
-        {{current_weather}}
-        {{description}}
-      </div>
-    </md-card-content>
+    <by-Temp display="display" title="'Ordered by Temperature'"></by-Temp>
+  <md-card>
 
 </md-content>
 </div>
@@ -71,15 +80,6 @@
         <!-- <button id = "search-botton">Search</button> -->
     <!-- </form> -->
 
-
-
- <script>
- function print(){
-   var x = document.getElementById("cityname").value;
-   document.getElementById("display").innerHTML = x;
- }
- </script>
-
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
@@ -91,17 +91,5 @@
        ga('send', 'pageview');
     </script>
 
-
-
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-
-
-        <!-- endbuild -->
 </body>
 </html>

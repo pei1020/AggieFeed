@@ -7,22 +7,25 @@
  *
  * Main module of the application.
  */
+
 angular.module('MyApp', [
-  'ngRoute'
+  'myControllers',
+  'myServices',
+  'ngRoute',
+  'ngResource',
+  'angular.filter'
 ])
-  .config(function ($routeProvider) {
+  .config(['$routeProvider',function ($routeProvider) {
      $routeProvider
     .when('/main', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'controller'
+        templateUrl: 'index.html',
+        controller: 'MainCtrl'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+        controller: 'AboutCtrl'
       });
-    });
+    }]);
 
 
       // var routeConfig = {

@@ -93,18 +93,9 @@ body {
   }
 }
 
-.carddemoBasicUsage md-card {
-  min-height: 250px;
- width: 80%;
-}
-
-md-card>:not(md-card-content) img, md-card>img {
-  box-sizing : border-box;
-}
-
 .header img{
-  height: 10%;
-  width: 10%;
+  height: 5%;
+  width: 5%;
 }
 
 .header #table_container{
@@ -116,4 +107,25 @@ md-card>:not(md-card-content) img, md-card>img {
   padding-right: 150px;
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.carddemoBasicUsage md-card {
+  min-height: 250px;
+  height: auto;
+ width: 45%;
+ float: left;
+ padding-left:150px;
+ margin-left:5px;
+}
+
+md-card>:not(md-card-content) img, md-card>img {
+  box-sizing : border-box;
+}
+
+.directive md-card{
+  padding-left: 30px;
+  width: 45%;
+  min-height: 250px;
+  height: auto;
+  float: right;
 }
