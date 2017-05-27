@@ -19,8 +19,9 @@ angular.module('myControllers',[])
 
   $scope.addActivity= function(){
     var Input = document.getElementById('cityname').value ;
-    if(/[^a-zA-Z_ ]/.test(Input))
-      alert("Invalid Input! Please enter valid city name.");
+    if(/[^a-zA-Z_ ]/.test(Input)){
+        alert("Invalid Input! Please enter valid city name.");
+    }
     else{
       ServiceCtrl.current_weather(function(data){
           /*  $scope.display.push({'Logo': "images/logo.jpg",
@@ -60,7 +61,8 @@ angular.module('myControllers',[])
           $scope.current_weather = '';
           $scope.description = '';
           $scope.link= '';
-    })}
+    });
+  }
        document.getElementById('cityname').value = null;
      };
    }])

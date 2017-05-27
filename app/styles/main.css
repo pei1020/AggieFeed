@@ -2,7 +2,7 @@ div#banner {
        position: absolute;
        top: 0;
        left: 0;
-       background-color: 	#FFA500;
+       background-color: #FFA500;
        width: 100%;
        height: 10%;
 }
@@ -25,17 +25,16 @@ div#banner-content {
   position: relative;
   background-color: #E8E8E8;
   width: 100%;
-  height: 10%;
-  padding: 10px 0px 10px 0px;
+  height: 15%;
+  padding: 10px 0px 25px 0px;
   margin: 10px 0px 10px 0px;
-}
 }
 .bar-content {
   font-family: 'Vesper Libre', serif;
-  width: 50%;
+  width: 100%;
+  height: auto;
   margin: 0 auto;
-  padding: 0px 10px 0px 50px;
-  margin-left: 50px;
+  padding: 0px 10px 0px 10px;
 color: #000000;
 position: absolute;
 
@@ -59,8 +58,7 @@ body{
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
-.marketing,
-.footer {
+.marketing{
   padding-left: 300px;
   padding-right: 15px;
 }
@@ -82,9 +80,13 @@ body{
 
 /* Custom page footer */
 .footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1em;
+  text-align: center;
+  background-color: #ffb84d;
 }
 
 /* Main marketing message and sign up button */
@@ -144,14 +146,9 @@ body{
 
 }
 
-.right md-card-content{
-  top: 0;
-}
-
-
 .right span{
   top: 0;
-  float: right
+  /*float: right;*/
   margin: 0 45% 0 0;
   color: #000000;
   line-spacing: -1;

@@ -13,6 +13,7 @@
   "unused": true,
   "globals": {
     "$": false,
+    "alert": false,
     "angular": false,
     "inject": false
   }
