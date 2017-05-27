@@ -9,6 +9,8 @@
  */
 
 angular.module('MyApp', [
+  'ngMaterial',
+  'ngAria',
   'myControllers',
   'myServices',
   'ngRoute',

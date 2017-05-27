@@ -10,7 +10,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
 <script src="jquery.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script rel="javascript" type="text/javascript" href="js/jquery-1.11.3.min.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -18,30 +22,34 @@
 <script src="scripts/controllers/about.js"></script>
 <script src="scripts/service.js"></script>
 <script src="scripts/app.js"></script>
-<!-- <script src="scripts/directive.js"></script> -->
 <link rel="stylesheet" href="styles/main.css">
 
 <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
 </head>
 
 <body ng-app="MyApp">
-    <h1>Weather Map</h1>
+  <div id="banner">
+        <div id="banner-content">
+            Weather Map
+        </div>
+    </div>
     <div class="header">
     <div ng-controller = "MainCtrl">
       <input id= "cityname" placeholder="Enter City">
-      <button id ="serach_button" ng-model = "weather_search" ng-click='addActivity("#cityname")'>Search</button>
+      <button id ="serach_button" ng-model = "weather_search" ng-click='addActivity("#cityname")'>Go</button>
 
 <div class="carddemoBasicUsage">
 
-<md-content layout="column" layout-gt-xs="row" style="background-color:#cecece">
+<md-content layout="column" layout-gt-xs="column" style="background-color:#cecece">
 
   <!-- <md-card flex flex-gt-md="30"> -->
-  <md-card ng-repeat="x in display | unique: 'title'">
+  <md-card layout="column" ng-repeat="x in display | unique: 'title'">
     <!-- <img ng-src="{{img}}" class="md-card-image" alt="Washed Out"> -->
       <img ng-src="{{x.image}}" class="md-card-image">
 
@@ -59,26 +67,13 @@
 </div>
 
 <div class = "directive">
-
-<md-content layout="column" layout-gt-xs="row" style="background-color:#cecece">
-
-  <!-- <md-card flex flex-gt-md="30"> -->
-  <md-card>
-    <by-Temp display="display" title="'Ordered by Temperature'"></by-Temp>
-  <md-card>
-
-</md-content>
+    <by-Temp display="display" arr1="arr1" arr2="arr2" arr3="arr3" arr4="arr4" title="'Ordered by Temperature'"></by-Temp>
 </div>
 
   </div>
     </div>
 
 
-
-    <!-- <form id="create-form" > -->
-        <!-- <input type="text" id="text-input" placeholder="Enter City Name"> -->
-        <!-- <button id = "search-botton">Search</button> -->
-    <!-- </form> -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>

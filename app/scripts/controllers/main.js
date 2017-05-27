@@ -11,6 +11,10 @@ angular.module('myControllers',[])
         .controller('MainCtrl', ['$scope', '$http', 'ServiceCtrl',function ($scope, $http, ServiceCtrl)
 {
   $scope.display = [];
+  $scope.arr1 =[];
+  $scope.arr2=[];
+  $scope.arr3=[];
+  $scope.arr4=[];
   $scope.addActivity= function(){
     ServiceCtrl.current_weather(function(data){
         /*  $scope.display.push({'Logo': "images/logo.jpg",
@@ -26,6 +30,24 @@ angular.module('myControllers',[])
            $scope.image = 'images/logo.jpg';
         $scope.display.splice(0,0,{'image': $scope.image, 'title':$scope.title, 'source': $scope.source, 'temperature':$scope.temperature,
                                     'current_weather': $scope.current_weather, 'description':$scope.description});
+
+
+           for(var i=0; i < $scope.display.length; i++){
+               console.log('In loop');
+              if($scope.display[i].temperature >= 85){
+                  $scope.arr1.push($scope.display[i]);
+
+              }
+              else if($scope.display[i].temperature >= 71 && $scope.display[i].temperature <= 84){
+                  $scope.arr2.push($scope.display[i]);
+              }
+              else if($scope.display[i].temperature >= 60 && $scope.display[i].temperature <= 70){
+                      $scope.arr3.push($scope.display[i]);
+              }
+              else{
+                $scope.arr4.push($scope.display[i]);
+              }
+          }
         $scope.title = '';
         $scope.temperature ='';
         $scope.source= '';
@@ -33,16 +55,19 @@ angular.module('myControllers',[])
         $scope.description = '';
         // $scope.img = '';
        document.getElementById('cityname').value = null;
-      });
-    };
-
+     })
+   };
   }])
   .directive('byTemp', [function () {
     return {
       restrict: 'E',
       scope:{
         display: '=',
-        title: '='
+        title: '=',
+        arr1: '=',
+        arr2: '=',
+        arr3: '=',
+        arr4: '='
       },
       templateUrl: 'views/tempOrder.html'
       // controller:function($scope){
