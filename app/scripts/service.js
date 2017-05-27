@@ -36,7 +36,7 @@ angular.module('myServices', [])
                 "verb": "post",
                 "title": "Current Weather of "+ data.name,
                 "generator":{
-                  "id": "http://openweathermap.org/api"
+                  "id": "http://openweathermap.org"
                 },
                 "object": {
                   "ucdSrcId" : "1234",

@@ -46,24 +46,24 @@
 
 <div class="carddemoBasicUsage">
 
-<md-content layout="column" layout-gt-xs="column" style="background-color:#cecece">
-
   <!-- <md-card flex flex-gt-md="30"> -->
-  <md-card layout="column" ng-repeat="x in display | unique: 'title'">
+  <md-card layout="column" ng-repeat="x in display | unique: 'title'"
+  layout="column" layout-gt-xs="column" style="background-color:#ffffff">
     <!-- <img ng-src="{{img}}" class="md-card-image" alt="Washed Out"> -->
-      <img ng-src="{{x.image}}" class="md-card-image">
-
+      <img ng-src="{{x.image}}" style="left">
     <!-- <md-card-content ng-repeat="x in display"> -->
-    <h2 class="md-title">{{x.title}}</h2>
-
-    <md-card-content>
-      {{x.source}} <br>
+    <!-- <h2 class="md-title">{{x.title}}</h2> -->
+  <md-card-content class="right">
+  <span>
+  <b>    {{x.title}} </b><br>
+  <a id="gray" target="_blank" href="{{x.link}}">       {{x.source}} </a><br>
       {{x.temperature}}°F <br>
       {{x.current_weather}} <br>
       {{x.description}} <br>
-    </md-card-content>
+  </span>
+  </md-card-content>
 </md-card>
-</md-content>
+
 </div>
 
 <div class = "directive">

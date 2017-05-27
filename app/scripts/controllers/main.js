@@ -28,12 +28,12 @@ angular.module('myControllers',[])
            $scope.current_weather= data.activity.object.content.weather;
            $scope.description = data.activity.object.content.description;
            $scope.image = 'images/logo.jpg';
+           $scope.link = data.activity.generator.id;
         $scope.display.splice(0,0,{'image': $scope.image, 'title':$scope.title, 'source': $scope.source, 'temperature':$scope.temperature,
-                                    'current_weather': $scope.current_weather, 'description':$scope.description});
+                                    'current_weather': $scope.current_weather, 'description':$scope.description, 'link': $scope.link});
 
 
            for(var i=0; i < $scope.display.length; i++){
-               console.log('In loop');
               if($scope.display[i].temperature >= 85){
                   $scope.arr1.push($scope.display[i]);
 
@@ -53,6 +53,7 @@ angular.module('myControllers',[])
         $scope.source= '';
         $scope.current_weather = '';
         $scope.description = '';
+        $scope.link= '';
         // $scope.img = '';
        document.getElementById('cityname').value = null;
      })

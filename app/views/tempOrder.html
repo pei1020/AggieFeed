@@ -2,9 +2,9 @@
 <h4>It is Frying! (≥85)</h4>
 <div style="text-align: left" ng-repeat="x in arr1 | unique: 'title'">
 <md-content layout="column" layout-gt-xs="column" style="background-color:#ffffff">
+<md-card>
 <img ng-src="{{x.image}}" class="md-card-image">
 <h4 class="md-title">{{x.title}}</h4>
-<md-card>
 {{x.source}} <br>
 {{x.temperature}} <br>
 {{x.current_weather}} <br>
