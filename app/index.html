@@ -27,7 +27,9 @@
 <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
@@ -36,7 +38,7 @@
 <body ng-app="MyApp">
   <div id="banner">
         <div id="banner-content">
-            Weather Map
+            Weather Map <span id="smallW">AggieFeed </span>
         </div>
     </div>
     <div class="header">
@@ -45,19 +47,16 @@
       <button id ="serach_button" ng-model = "weather_search" ng-click='addActivity("#cityname")'>Go</button>
 
 <div class="carddemoBasicUsage">
-
+<div id="hdr"> <i class="fa fa-hourglass-half fa-spin" aria-hidden="true"></i> Search Results</div>
   <!-- <md-card flex flex-gt-md="30"> -->
   <md-card layout="column" ng-repeat="x in display | unique: 'title'"
   layout="column" layout-gt-xs="column" style="background-color:#ffffff">
-    <!-- <img ng-src="{{img}}" class="md-card-image" alt="Washed Out"> -->
-      <img ng-src="{{x.image}}" style="left">
-    <!-- <md-card-content ng-repeat="x in display"> -->
-    <!-- <h2 class="md-title">{{x.title}}</h2> -->
+  <img ng-src="{{x.image}}" style="left">
   <md-card-content class="right">
   <span>
   <b>    {{x.title}} </b><br>
-  <a id="gray" target="_blank" href="{{x.link}}">       {{x.source}} </a><br>
-      {{x.temperature}}°F <br>
+  <a id="gray" target="_blank" href="{{x.link}}">{{x.source}} </a><br>
+      {{x.temperature}}°F
       {{x.current_weather}} <br>
       {{x.description}} <br>
   </span>

@@ -1,44 +1,76 @@
-<h2> Order by Temperature</h2>
-<h4>It is Frying! (≥85)</h4>
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+<div id = "hdr"><i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i> Temperature Category</div>
+<div id="bar">
+  <div id="bar-content" style="text-align: center"><b>≥85°F: Frying!</b></div>
+  </div>
 <div style="text-align: left" ng-repeat="x in arr1 | unique: 'title'">
-<md-content layout="column" layout-gt-xs="column" style="background-color:#ffffff">
-<md-card>
-<img ng-src="{{x.image}}" class="md-card-image">
-<h4 class="md-title">{{x.title}}</h4>
-{{x.source}} <br>
-{{x.temperature}} <br>
-{{x.current_weather}} <br>
-{{x.description}} <br>
+<md-card layout="column" layout-gt-xs="column" style="background-color:#ffffff">
+  <md-card-content class="right">
+  <span>
+  <b>    {{x.title}} </b><br>
+  <a id="gray" target="_blank" href="{{x.link}}">{{x.source}} </a><br>
+      {{x.temperature}}°F
+      {{x.current_weather}} <br>
+      <!-- {{x.description}} <br> -->
+  </span>
+  </md-card-content>
+  </md-card>
 </md-card>
-</md-content>
 </div>
 
-<h4>Warm and Cozy (70-84)</h4>
-<div style="text-align: center" ng-repeat="x in arr2 | unique: 'title'">
-{{x.image}}
-{{x.title}}
-{{x.source}} <br>
-{{x.temperature}} <br>
-{{x.current_weather}} <br>
-{{x.description}} <br>
+
+<div id="bar">
+  <div id="bar-content" style="text-align: center"><b>70°F-84°F: Warm and Cozy</b></div>
+  </div>
+<div style="text-align: left" ng-repeat="x in arr2 | unique: 'title'">
+  <md-card layout="column" layout-gt-xs="column" style="background-color:#ffffff">
+    <md-card-content class="right">
+    <span>
+    <b>    {{x.title}} </b><br>
+    <a id="gray" target="_blank" href="{{x.link}}">{{x.source}} </a><br>
+        {{x.temperature}}°F
+        {{x.current_weather}} <br>
+        <!-- {{x.description}} <br> -->
+    </span>
+    </md-card-content>
+    </md-card>
 </div>
 
-<h4> Short Sleeves and Long Sleeves Dilemma (61-69)</h4>
-<div style="text-align: center" ng-repeat="x in arr3 | unique: 'title'">
-{{x.image}}
-{{x.title}}
-{{x.source}} <br>
-{{x.temperature}} <br>
-{{x.current_weather}} <br>
-{{x.description}} <br>
+
+<div id="bar">
+  <div id="bar-content" style="text-align: center"><b>61°F-69°F: Short Sleeves and Long Sleeves Dilemma</b></div>
+  </div>
+<div style="text-align: left" ng-repeat="x in arr3 | unique: 'title'">
+  <md-card layout="column" layout-gt-xs="column" style="background-color:#ffffff">
+    <md-card-content class="right">
+    <span>
+    <b>    {{x.title}} </b><br>
+    <a id="gray" target="_blank" href="{{x.link}}">{{x.source}} </a><br>
+        {{x.temperature}}°F
+        {{x.current_weather}} <br>
+        <!-- {{x.description}} <br> -->
+    </span>
+    </md-card-content>
+    </md-card>
 </div>
 
-<h4>Embrace the Jackets (≤60)</h4>
-<div style="text-align: center" ng-repeat="x in arr4 | unique: 'title'">
-{{x.image}}
-{{x.title}}
-{{x.source}} <br>
-{{x.temperature}} <br>
-{{x.current_weather}} <br>
-{{x.description}} <br>
+
+
+<div id="bar">
+  <div id="bar-content" style="text-align: center"><b>≤60°F: Embrace the Jackets</b></div>
+</div>
+<div style="text-align: left" ng-repeat="x in arr4 | unique: 'title'">
+  <md-card layout="column" layout-gt-xs="column" style="background-color:#ffffff">
+    <!-- <img ng-src="{{x.image}}" style="left"> -->
+    <md-card-content class="right">
+    <span>
+    <b>    {{x.title}} </b><br>
+    <a id="gray" target="_blank" href="{{x.link}}">{{x.source}} </a><br>
+        {{x.temperature}}°F
+        {{x.current_weather}} <br>
+        <!-- {{x.description}} <br> -->
+    </span>
+    </md-card-content>
+    </md-card>
 </div>
