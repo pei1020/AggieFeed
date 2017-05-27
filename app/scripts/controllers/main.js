@@ -19,7 +19,7 @@ angular.module('myControllers',[])
 
   $scope.addActivity= function(){
     var Input = document.getElementById('cityname').value ;
-    if(/[^a-zA-Z]/.test(Input))
+    if(/[^a-zA-Z_ ]/.test(Input))
       alert("Invalid Input! Please enter valid city name.");
     else{
       ServiceCtrl.current_weather(function(data){
