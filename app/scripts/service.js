@@ -15,9 +15,9 @@ angular.module('myServices', [])
     var json = [];
 
         $.ajax({
-          type: 'GET',
-          url: "http://api.openweathermap.org/data/2.5/weather?q="+cityname+"&appid=a57c72744b6d58125f048dbf8ef60523",
-          success:function(data) {
+          type: 'POST',
+          url: "http://api.openweathermap.org/data/2.5/weather?q="+cityname+"&appid=a57c72744b6d58125f048dbf8ef60523",})
+          .done(function(data) {
              json = {
                 "activity" : {
                 "icon":  "icon-bullhorn",
@@ -85,8 +85,8 @@ angular.module('myServices', [])
             };
               // console.log(json);
                callback(json);
-          }
+          });
+
+        };
+         this.current_weather = getWeather;
     });
-}
- this.current_weather = getWeather;
-});

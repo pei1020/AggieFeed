@@ -36,23 +36,27 @@ angular.module('myControllers',[])
              $scope.description = data.activity.object.content.description;
              $scope.image = 'images/logo.jpg';
              $scope.link = data.activity.generator.id;
-          $scope.display.splice(0,0,{'image': $scope.image, 'title':$scope.title, 'source': $scope.source, 'temperature':$scope.temperature,
-                                      'current_weather': $scope.current_weather, 'description':$scope.description, 'link': $scope.link});
-
+          $scope.display.splice(0,0,{'image': $scope.image, 'title':$scope.title, 'source': $scope.source, 'temperature':$scope.temperature,'current_weather': $scope.current_weather, 'description':$scope.description, 'link': $scope.link});
+console.log($scope.display);
+           $scope.$apply();
 
              for(var i=0; i < $scope.display.length; i++){
                 if($scope.display[i].temperature >= 85){
                     $scope.arr1.push($scope.display[i]);
+                     $scope.$apply();
 
                 }
                 else if($scope.display[i].temperature >= 71 && $scope.display[i].temperature <= 84){
                     $scope.arr2.push($scope.display[i]);
+                     $scope.$apply();
                 }
                 else if($scope.display[i].temperature >= 60 && $scope.display[i].temperature <= 70){
                         $scope.arr3.push($scope.display[i]);
+                         $scope.$apply();
                 }
                 else{
                   $scope.arr4.push($scope.display[i]);
+                   $scope.$apply();
                 }
             }
           $scope.title = '';
