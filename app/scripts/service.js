@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * @ngdoc function
  * @name desktopApp.controller:MainCtrl
@@ -10,8 +9,10 @@
 angular.module('myServices', [])
   .service('ServiceCtrl', function ()
 {
-    function getWeather(callback){
-    var cityname = document.getElementById('cityname').value;
+  function getWeather(callback){
+var str = document.getElementById('cityname').value ;
+var city = str.split(',');
+var cityname = city[0];
     var json = [];
 
         $.ajax({
@@ -34,7 +35,7 @@ angular.module('myServices', [])
                   }//end of image
                 },//end of actor
                 "verb": "post",
-                "title": "Current Weather of "+ data.name,
+                "title": "Current Weather of "+ data.name+", "+data.sys.country,
                 "generator":{
                   "id": "http://openweathermap.org"
                 },
@@ -49,7 +50,7 @@ angular.module('myServices', [])
                     "url" : "http://openweathermap.org",
                     "urlDisplayName" : "openweathermap",
                     "event" : {
-                      "location": data.main.name,
+                      "location": data.main.name + ","+ data.sys.country,
                       "event.isAllDay": true,
                       "hasStartTime" : false,
                       "startDate": "2017-05-18T08:00:00.000Z",
@@ -83,10 +84,8 @@ angular.module('myServices', [])
               }
 
             };
-              // console.log(json);
                callback(json);
           });
-
-        };
+       };
          this.current_weather = getWeather;
     });

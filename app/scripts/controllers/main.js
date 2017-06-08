@@ -16,19 +16,34 @@ angular.module('myControllers',[])
   $scope.arr3=[];
   $scope.arr4=[];
 
+/*  var array=["Davis", "New York", "London"];
+
+$(function() {
+  $( "#cityname" ).autocomplete({
+    source: dbCtrl.getlist(),
+    response: function(event, ui) {
+        if (ui.content.length === 0) {
+            $("#empty-message").text("No results found");
+            alert("No results found! Please enter a valid city.");
+             document.getElementById('cityname').value = null;
+        } else {
+          $("#empty-message").empty();
+            // alert("You have picked "+ui.content[0].value+"!");
+        }
+    }
+})
+}),*/
 
   $scope.addActivity= function(){
-    var Input = document.getElementById('cityname').value ;
-    if(/[^a-zA-Z_ ]/.test(Input)){
+    var str = document.getElementById('cityname').value ;
+    var Input = str.split(',');
+    //console.log(Input[0]);
+
+    if(/[^a-zA-Z_ ]/.test(Input[0])){
         alert("Invalid Input! Please enter valid city name.");
     }
     else{
       ServiceCtrl.current_weather(function(data){
-          /*  $scope.display.push({'Logo': "images/logo.jpg",
-            'Title':data.activity.title, 'Source':data.activity.actor.author.displayName,
-            'temperature':Math.round(data.activity.object.content.temperature * 9/5 - 459.67)+"°F",
-            'Current Weather':data.activity.object.content.weather, 'Description':data.activity.object.content.description
-          });*/
             $scope.title = data.activity.title;
              $scope.temperature = Math.round(data.activity.object.content.temperature * 9/5 - 459.67);
              $scope.source = data.activity.actor.author.displayName;
@@ -36,15 +51,15 @@ angular.module('myControllers',[])
              $scope.description = data.activity.object.content.description;
              $scope.image = 'images/logo.jpg';
              $scope.link = data.activity.generator.id;
-          $scope.display.splice(0,0,{'image': $scope.image, 'title':$scope.title, 'source': $scope.source, 'temperature':$scope.temperature,'current_weather': $scope.current_weather, 'description':$scope.description, 'link': $scope.link});
-console.log($scope.display);
+          $scope.display.splice(0,0,{'image': $scope.image, 'title':$scope.title, 'source': $scope.source,
+          'temperature':$scope.temperature,'current_weather': $scope.current_weather,
+          'description':$scope.description, 'link': $scope.link});
            $scope.$apply();
 
              for(var i=0; i < $scope.display.length; i++){
                 if($scope.display[i].temperature >= 85){
                     $scope.arr1.push($scope.display[i]);
                      $scope.$apply();
-
                 }
                 else if($scope.display[i].temperature >= 71 && $scope.display[i].temperature <= 84){
                     $scope.arr2.push($scope.display[i]);
@@ -82,26 +97,35 @@ console.log($scope.display);
         arr4: '='
       },
       templateUrl: 'views/tempOrder.html'
-      // controller:function($scope){
-//
-      // },
-
     };
 
+  }])
+  .directive('googleplace', [function() {
+    //console.log('ingoogleplace');
+      // return {
+      //     link: function(scope, element, attrs, model) {
+      //         var options = {
+      //             types: [cities],
+      //             componentRestrictions: {}
+      //         };
+      //         scope.gPlace = new google.maps.places.Autocomplete(element[0], options);
+      //
+      //         google.maps.event.addListener(scope.gPlace, 'place_changed', function() {
+      //             scope.$apply(function() {
+      //                 model.$setViewValue(element.val());
+      //             });
+      //         });
+      //     }
+      // };
+
+ var options = {
+  types: ['(cities)']
+ };
+
+ var input = document.getElementById('cityname');
+ var autocomplete = new google.maps.places.Autocomplete(input, options);
+ if(input.length > 0 && autocomplete == "") console.log('FUCCK this');
+ return{
+
+ };
   }]);
-
-
-    /* $scope.go = function() {
-      ServiceCtrl.current_weather(function(data){
-
-            //  console.log(data.activity.title);
-            $scope.title = data.activity.title;
-            $scope.source = data.activity.actor.author.displayName;
-            //  $scope.city = data.name;
-             $scope.temperature = Math.round(data.activity.object.content.temperature * 9/5 - 459.67)+"°F";
-             $scope.current_weather = data.activity.object.content.weather;
-             $scope.description = data.activity.object.content.description;
-             $scope.img = "images/logo.jpg";
-        });
-      };
-   });*/

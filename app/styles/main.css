@@ -103,6 +103,8 @@ body{
   margin-left: 615px;
   margin-top: 85px;
   margin-bottom: 15px;
+  height: 30px;
+  width: 20%;
 
 }
 
@@ -175,9 +177,10 @@ body{
   text-align: center;
   font-size: 120%;
 }
-.directive{
+/*.directive{
   padding-left: 20px;
   padding-right: 150px;
+  margin-right: 40px;
   width: 45%;
   min-height: 250px;
   height: auto;
@@ -187,6 +190,25 @@ body{
 }
 
 .directive img {
+  margin: 10px 0px 2px 13px;
+  height: 10%;
+  width: 10%;
+
+}*/
+
+.byTemp{
+  padding-left: 20px;
+  padding-right: 150px;
+  margin-right: 40px;
+  width: 45%;
+  min-height: 250px;
+  height: auto;
+  float: right;
+  background: #F8F8F8;
+    font-family: 'Vesper Libre', serif;
+}
+
+.byTemp img {
   margin: 10px 0px 2px 13px;
   height: 10%;
   width: 10%;

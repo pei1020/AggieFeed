@@ -5,25 +5,41 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="jquery.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+<script src="https://cdn.firebase.com/js/client/2.3.0/firebase.js"></script>
+<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire"></script>
+<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-database.js"></script>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-resource.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
-<script src="jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/angular-material/angular-material.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/firebase/firebase-app.js"></script>
+<script src="bower_components/firebase/firebase-database.js"></script>
+<script src="bower_components/angularfire/angularfire.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script rel="javascript" type="text/javascript" href="js/jquery-1.11.3.min.js"></script>
-<script src="bower_components/angular/angular.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/about.js"></script>
 <script src="scripts/service.js"></script>
+<script src="scripts/checker.js"></script>
 <script src="scripts/app.js"></script>
 <link rel="stylesheet" href="styles/main.css">
-
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB071gdMLnHTFKc87XnfkXfG_D3UFkXLBs&libraries=places"></script>
 <head>
     <meta charset="utf-8">
     <title></title>
@@ -45,9 +61,11 @@
     </div>
     <div class="header">
     <div ng-controller = "MainCtrl">
+      <span class = "googleplace" >
       <input id= "cityname" placeholder="Enter City">
+      <span>
+      <!-- <button id ="serach_button" ng-model = "weather_search" ng-click='addActivity("#cityname")'>Go</button> -->
       <button id ="serach_button" ng-model = "weather_search" ng-click='addActivity("#cityname")'>Go</button>
-
 <div class="carddemoBasicUsage">
 <div id="hdr"> <i class="fa fa-hourglass-half fa-spin" aria-hidden="true"></i> Search Results</div>
   <!-- <md-card flex flex-gt-md="30"> -->
@@ -67,7 +85,8 @@
 
 </div>
 
-<div class = "directive">
+<!-- <div class = "directive"> -->
+<div class= "byTemp">
     <by-Temp display="display" arr1="arr1" arr2="arr2" arr3="arr3" arr4="arr4" title="'Ordered by Temperature'"></by-Temp>
 </div>
 
