@@ -13,6 +13,7 @@ angular.module('MyApp', [
   'ngAria',
   'myControllers',
   'myServices',
+  'iso-3166-country-codes',
   'ngRoute',
   'ngResource',
   'angular.filter'
@@ -28,18 +29,3 @@ angular.module('MyApp', [
         controller: 'AboutCtrl'
       });
     }]);
-
-
-      // var routeConfig = {
-			// controller: 'MainCtrl',
-			// templateUrl: 'index.html',
-			// resolve: {
-				// go: function (ServiceCtrl) {
-					// Get the correct module (API or localStorage).
-					// return ServiceCtrl.then(function (module) {
-						// module.getWeather(); // Fetch the todo records in the background.
-						// return module;
-					// });
-				// }
-			// }
-		// };

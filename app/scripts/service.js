@@ -6,20 +6,29 @@
  * # MainCtrl
  * Controller of the desktopApp
  */
-angular.module('myServices', [])
-  .service('ServiceCtrl', function ()
-{
-  function getWeather(callback){
-var str = document.getElementById('cityname').value ;
-var city = str.split(',');
-var cityname = city[0];
-    var json = [];
 
-        $.ajax({
-          type: 'POST',
-          url: "http://api.openweathermap.org/data/2.5/weather?q="+cityname+"&appid=a57c72744b6d58125f048dbf8ef60523",})
-          .done(function(data) {
-             json = {
+angular.module('myServices', [])
+  .service('ServiceCtrl', ['ISO3166',function (ISO3166)
+{
+  //call weather api and asign to aggiefeed format
+  function getWeather(callback){
+  var str = document.getElementById('cityname').value ;
+  var place = str.split(',');
+  var cityname = place[0];
+  var countryname;
+  var json = [];
+
+  //to get country code for more accurate data
+  ISO3166.getCode(function(data){
+    countryname = data;
+  });
+
+  //ajax call
+  $.ajax({
+    type: 'POST',
+    url: "http://api.openweathermap.org/data/2.5/weather?q="+cityname+","+countryname+"&appid=a57c72744b6d58125f048dbf8ef60523",})
+    .done(function(data) {
+        json = {
                 "activity" : {
                 "icon":  "icon-bullhorn",
                 "actor": {
@@ -50,7 +59,7 @@ var cityname = city[0];
                     "url" : "http://openweathermap.org",
                     "urlDisplayName" : "openweathermap",
                     "event" : {
-                      "location": data.main.name + ","+ data.sys.country,
+                      "location": data.name,
                       "event.isAllDay": true,
                       "hasStartTime" : false,
                       "startDate": "2017-05-18T08:00:00.000Z",
@@ -58,7 +67,7 @@ var cityname = city[0];
                     }
                   },
                   "location" : {
-                    "displayName": data.main.name,
+                    "displayName": data.name,
                     "geo" : {
                       "latitude": data.coord[0],
                       "longitude": data.coord[1]
@@ -69,7 +78,7 @@ var cityname = city[0];
                     }
                   }
                 },
-                "to" : [
+                "to":[
                   {
                     "id": "912234760",
                     "g": false,
@@ -82,10 +91,12 @@ var cityname = city[0];
                   "endDate" : "2017-05-18T23:59:00.000Z"
                 }
               }
-
             };
                callback(json);
+          })
+          .fail(function (data){
+            callback(-1);
           });
        };
          this.current_weather = getWeather;
-    });
+    }]);
