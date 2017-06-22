@@ -22,7 +22,7 @@ angular.module('myControllers',[])
     var Input = str.split(',');
 
     ServiceCtrl.current_weather(function(data){
-    if(data != -1 && data.activity.object.location.displayName == Input[0]){
+    if(data !== -1 && data.activity.object.location.displayName === Input[0]){
       //binding data to variables
       $scope.title = data.activity.title;
       $scope.temperature = Math.round(data.activity.object.content.temperature * 9/5 - 459.67);
@@ -70,11 +70,14 @@ angular.module('myControllers',[])
     //error handling
     //else if - when api returns 404 bad request
     //else - when api found possible answers
-    else if(data == -1)
+    else if(data === -1)
+    {
         alert("Result not found!");
-    else
+    }
+    else{
         alert("Do you mean "+data.activity.object.location.displayName+" ?");
-    })
+    }
+  });
 
     //empty input text field
        document.getElementById('cityname').value = null;
@@ -103,6 +106,5 @@ angular.module('myControllers',[])
 
     var input = document.getElementById('cityname');
     var autocomplete = new google.maps.places.Autocomplete(input, options);
-    return{
-    };
+    return autocomplete;
 }]);

@@ -94,9 +94,9 @@ angular.module('myServices', [])
             };
                callback(json);
           })
-          .fail(function (data){
+          .fail(function (){
             callback(-1);
           });
-       };
+       }
          this.current_weather = getWeather;
     }]);
