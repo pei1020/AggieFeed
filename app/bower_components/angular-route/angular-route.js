@@ -57,15 +57,17 @@ var noop;
  * <div doc-module-components="ngRoute"></div>
  */
 /* global -ngRouteModule */
-
-  var ngRouteModule = angular.module('MyApp')
-  .info({ angularVersion: '1.6.4' }).provider('$route', $RouteProvider).run(instantiateRoute);
+var ngRouteModule = angular.
+  module('ngRoute', []).
+  info({ angularVersion: '1.6.4' }).
+  provider('$route', $RouteProvider).
   // Ensure `$route` will be instantiated in time to capture the initial `$locationChangeSuccess`
   // event (unless explicitly disabled). This is necessary in case `ngView` is included in an
   // asynchronously loaded template.
-
+  run(instantiateRoute);
 var $routeMinErr = angular.$$minErr('ngRoute');
 var isEagerInstantiationEnabled;
+
 
 /**
  * @ngdoc provider

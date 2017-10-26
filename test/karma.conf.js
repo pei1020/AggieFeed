@@ -24,6 +24,9 @@ module.exports = function(config) {
       'bower_components/angular/angular.js',
       'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/angular-route/angular-route.js',
+      'bower_components/firebase/firebase.js',
+      'bower_components/angularfire/dist/angularfire.js',
+      'bower_components/iso-3166-country-codes-angular/dist/iso-3166-country-codes-angular.min.js',
       // endbower
       'app/scripts/**/*.js',
       'test/mock/**/*.js',

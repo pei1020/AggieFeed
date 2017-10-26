@@ -1659,7 +1659,7 @@ var isAutoBootstrapAllowed = allowAutoBootstrap(window.document);
  * @module ng
  *
  * @element ANY
- * @param {angular.Module} MyApp an optional application
+ * @param {angular.Module} ngApp an optional application
  *   {@link angular.module module} name to load.
  * @param {boolean=} ngStrictDi if this attribute is present on the app element, the injector will be
  *   created in "strict-di" mode. This means that the application will fail to invoke functions which
@@ -2375,7 +2375,7 @@ function setupModuleLoader(window) {
            * @description
            * See {@link auto.$provide#service $provide.service()}.
            */
-          service: invokeLaterAndSetModuleName('$provide', 'ServiceCtrl'),
+          service: invokeLaterAndSetModuleName('$provide', 'service'),
 
           /**
            * @ngdoc method
@@ -2474,7 +2474,7 @@ function setupModuleLoader(window) {
            * @description
            * See {@link ng.$controllerProvider#register $controllerProvider.register()}.
            */
-          controller: invokeLaterAndSetModuleName('$controllerProvider', 'MainCtrl'),
+          controller: invokeLaterAndSetModuleName('$controllerProvider', 'register'),
 
           /**
            * @ngdoc method
